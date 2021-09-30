@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>cadastro de cliente</title>
+</head>
+
+<body>
+  <h5 class="tempo">tempo:<span id="tempo"></span></h5>
+  <h1>cadastro de assinantes- canais de esporte</h1>
+  <form onsubmit="">
+
+
+
+
+    <label> Nome:</label>
+    <input type="text" name="nome" id="nome" required><br>
+
+    <label>cpf: </label>
+    <input type="text" name="cpf" id="cpf" required placeholder="000.000.000/00"> <br>
+
+    <label>email: </label>
+    <input type="text" name="email" id="email" required> <br>
+
+    <label>tefone: </label>
+    <input type="text" name="celular" id="celular" required placeholder="11999999999"> <br>
+
+    <label>data de nascimento: </label>
+    <input type="date" name="nascimento" id="nascimento" required> <br>
+
+    <label for="salario">salario:</label>
+    <input type="salario" name="salario" id="salario" required> <br>
+
+    <label>sexo: </label>
+    <input type="radio" name="sexo" id="sexo" value="m" checked>masculino <br>
+
+    <label>sexo: </label>
+    <input type="radio" name="sexo" id="sexo" value="f" checked>feminino <br>
+
+    <label>sexo: </label>
+    <input type="radio" name="sexo" id="sexo" value="t" checked>transgenero <br>
+
+    <label> time de futebol:</label>
+    <select name="times" id="times" required>
+      <option value="corinthians">corinthians</option>
+      <option value="sao paulo">sao paulo</option>
+      <option value="santos">santos</option>
+      <option value="palmeiras">palmeiras</option>
+    </select><br>
+
+    <label>planos:</label>
+    <input type="radio" name="planos" id="planos" value="m" checked> mensal- R$85,00 <br>
+    <input type="radio" name="planos" id="planos" value="t" checked> trimestral - R$250,00 <br>
+    <input type="radio" name="planos" id="planos" value="a" checked> anual - R$650,00 <br>
+    <label> canais incluidos </label>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            plano mensal
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul>
+              <li>ESPN</li>
+              <li>FOX SPORTS</li>
+              <li>SPORT TV</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            plano trimestral
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul>
+              <li>ESPN</li>
+              <li>FOX SPORTS</li>
+              <li>SPORT TV</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            plano anual
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul>
+              <li>ESPN</li>
+              <li>FOX SPORTS</li>
+              <li>SPORT TV</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label> premier:</label>
+    <input type="radio" name="premier" id="premier" value="e" checked>economico-12x R$60,00 <br>
+    <input type="radio" name="premier" id="premier" value="c"> controle- mensal- R$85,00 <br>
+    <label>total(mensal):</label>
+    <input type="text" name="total" id="total" onclick="calculo()"><br>
+
+    <label>para assinar, <br>informe logim e senha:</label>
+    <input type="text" name="login" id="login"><br>
+
+    <input type="text" name="senha" id="senha"><br>
+
+    <button onclick="validar_tudo()"> validar formulario</button>
+
+    <button id="btn_assinar" onclick="fazer_login()"disabled >assinar</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+    crossorigin="anonymous"></script>
+
+  <script src="_javasript/valida_form.js"></script>
+
+
+</body>
+
+</html>
